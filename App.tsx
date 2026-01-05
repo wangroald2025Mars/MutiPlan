@@ -41,8 +41,8 @@ import {
   BookCheck,
   Target
 } from 'lucide-react';
-import { DILEMMAS, MODULES, PHASES, PHILOSOPHY_PILLARS, PHILOSOPHY_VALUES } from './constants';
-import { Dilemma, ServiceModule, Phase } from './types';
+import { DILEMMAS, MODULES, PHASES, PHILOSOPHY_PILLARS, PHILOSOPHY_VALUES } from './constants.tsx';
+import { Dilemma, ServiceModule, Phase } from './types.ts';
 
 const scrollToSection = (id: string) => {
   const element = document.getElementById('root');
@@ -259,7 +259,7 @@ const ModuleSection = () => (
                   {[
                     { q: '这个专业好就业吗？', a: '毕业后能去哪些企业、岗位？这些行业待遇怎么样？能赚到钱吗？' },
                     { q: '工作压力大吗？', a: '工作强度如何？适合什么样的人？我到底适不适合这个行业？' },
-                    { q: '用人要求高吗？', a: '目标企业的用人要求是什么？对学校排名有限制吗？我现在的能力和用人单位的要求差距有多大？' },
+                    { q: '用人要求高吗？', a: '目标企业的用人要求是什么？对学校排名有限制吗？' },
                     { q: '我该怎么准备？', a: '做什么实习合适？做几段实习？如何补充能力达到用人要求？' }
                   ].map((item, idx) => (
                     <div key={idx} className="flex flex-col h-full group/problem">
@@ -412,7 +412,7 @@ const ModuleSection = () => (
                   { dim: '维度1：专业认知', content: '这个方向学什么？毕业以后做什么？', harvest: '明确各方向的核心差异、学习内容、就业方向，找到最适合自己的申请方向' },
                   { dim: '维度2：学术准备', content: '怎么选课？跨专业如何选课？需要补充什么？需要考取哪些证书？', harvest: '了解申请所需的前置课程，以及考取什么证书更有利于申请' },
                   { dim: '维度3：竞赛规划', content: '要不要做竞赛？做什么竞赛？', harvest: '分析不同类型竞赛的含金量与认可度，提供竞赛选择与时间规划建议' },
-                  { dim: '维度4：科研要求', content: '科研对申请有多大帮助？做什么科研？有没有必要做？', harvest: '解析科研在申请中的作用，提供科研方向匹配建议（具体科研规划由模块3提供）' },
+                  { dim: '维度4：科研要求', content: '科研对申请有多大帮助？做什么科研？', harvest: '解析科研在申请中的作用，提供科研方向匹配建议（具体科研规划由模块3提供）' },
                   { dim: '维度5：院校项目', content: '导师有没有特别推荐的学校？就读体验如何？周围人就业怎么样？', harvest: '提供真实的院校项目信息和就业反馈' },
                   { dim: '维度6：申请策略', content: '背景处于什么水平？最需要补强什么？', harvest: '评估当前背景竞争力，明确最需要补强的短板，制定大一到大三的分阶段行动计划' },
                 ].map((item, idx) => (
@@ -518,9 +518,9 @@ const ModuleSection = () => (
                
                <div className="grid md:grid-cols-4 gap-4 mb-12">
                  {[
-                   { step: '01', title: '判断科研重要性', content: '科研对申请的方向有多重要？有没有必要做科研？不做科研会不会影响申请？' },
+                   { step: '01', title: '判断科研重要性', content: '科研对申请的方向有多重要？有没有必要做科研？' },
                    { step: '02', title: '确定科研方向', content: '应该做什么方向的科研？如何判断科研课题和申请方向的匹配度？' },
-                   { step: '03', title: '选择科研形式与渠道', content: '本校、校外、付费科研项目有什么区别？如何选择？付费科研靠谱吗？贵的和便宜的差在哪？如何找到科研机会？什么时候开始准备？' },
+                   { step: '03', title: '选择科研形式与渠道', content: '本校、校外、付费科研项目有什么区别？如何选择？如何找到科研机会？' },
                    { step: '04', title: '搞清楚论文要求', content: '什么样的科研成果对申请最有帮助？论文应该发什么刊物？项目报告能不能代替？' }
                  ].map((s, idx) => (
                    <div key={idx} className="bg-white border-t-[6px] border-slate-900 p-8 shadow-lg relative group/step hover:border-amber-600 transition-all">
@@ -620,7 +620,7 @@ const ModuleSection = () => (
                    { 
                      title: '第一步：考试规划', 
                      icon: <Target className="w-7 h-7" />,
-                     content: '确定考试类型（托福/雅思）：根据目标国家/地区确定考试类型；设定目标分数：根据目标院校和专业要求；评估当前水平：提供模拟考试，了解学生现状；制定出分时间表：什么时候首考、什么时候刷分' 
+                     content: '确定考试类型（托福/雅思）；设定目标分数；评估当前水平：提供模拟考试；制定出分时间表。' 
                    },
                    { 
                      title: '第二步：备考计划制定', 
@@ -630,7 +630,7 @@ const ModuleSection = () => (
                    { 
                      title: '第三步：备考支持', 
                      icon: <Headphones className="w-7 h-7" />,
-                     content: '电子版复习资料（真题、词汇书、备考指南等）；定期模考服务（检测学习进度）；学习方法答疑（可答疑备考方法，如：托福阅读怎么提高、雅思写作怎么备考等；不答疑具体题目）；进度监督服务（监督备考进度，确保按计划推进）' 
+                     content: '电子版复习资料；定期模考服务；学习方法答疑；进度监督服务（确保按计划推进）' 
                    },
                    { 
                      title: '第四步：机构对接', 
