@@ -264,7 +264,7 @@ const ModuleSection = () => (
                   ].map((item, idx) => (
                     <div key={idx} className="flex flex-col h-full group/problem">
                       <div className="bg-amber-50 p-4 mb-4 rounded-sm border-l-4 border-amber-600 shadow-sm transition-all group-hover/problem:bg-amber-100">
-                        <span className="serif italic text-amber-900 text-xl font-black block">“ {item.q} ”</span>
+                        <span className="serif italic text-amber-900 text-xl font-black block">{item.q}</span>
                       </div>
                       <p className="text-slate-900/70 text-lg leading-relaxed font-medium pl-2 transition-opacity group-hover/problem:opacity-100">{item.a}</p>
                     </div>
@@ -418,7 +418,7 @@ const ModuleSection = () => (
                 ].map((item, idx) => (
                   <div key={idx} className="bg-white border border-slate-100 p-6 shadow-sm hover:shadow-xl transition-all group/dim">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-amber-600 font-black text-base uppercase tracking-widest">{item.dim}</span>
+                      <span className="serif italic text-amber-900 text-xl font-black block">{item.dim}</span>
                       <div className="h-px flex-1 bg-amber-600/10 mx-4"></div>
                     </div>
                     <h6 className="serif font-bold text-lg lg:text-xl text-white mb-4 leading-snug inline-block bg-[#d9780d] px-3 py-1.5 shadow-sm">
@@ -691,7 +691,7 @@ const DefinitionSection = () => (
           </div>
           <h2 className="serif text-3xl lg:text-4xl font-black text-slate-900 tracking-tighter leading-tight mb-2">什么是“多元申请规划”？</h2>
           <div className="relative inline-flex mt-1">
-            <span className="display text-3xl lg:text-5xl font-bold text-white bg-amber-600 px-6 py-2 border-amber-600 uppercase tracking-widest italic">不止于申请</span>
+            <span className="display text-3xl lg:text-4xl font-bold text-white bg-amber-600 px-6 py-2 border-amber-600 uppercase tracking-widest italic">不止于申请</span>
           </div>
         </div>
       </div>
@@ -951,7 +951,7 @@ export default function App() {
               <div className="w-12 h-12 bg-amber-600 flex items-center justify-center rotate-45 shadow-2xl"><Zap className="text-white w-5 h-5 -rotate-45" /></div>
               <div><span className="serif font-bold text-2xl tracking-tighter uppercase">多元申请规划</span><p className="text-[9px] text-amber-500 font-black uppercase tracking-[0.4em] mt-1">Multi-Admission Planning Service</p></div>
             </div>
-            <p className="text-white text-[18px] max-w-sm font-light leading-relaxed">提供全球名校的学术规划与职业发展咨询，助力学子实现更好的就业<br/> Copyright 榕树国际SeeyooEdu</p>
+            <p className="text-white text-[18px] max-w-sm font-light leading-relaxed">提供全球名校的学术规划与职业发展咨询，助力学子实现更好的就业<br/> SeeyooEdu</p>
           </div>
           <div className="flex md:justify-end gap-16 text-[16px] font-black uppercase tracking-[0.3em] text-slate-500">
             <div className="space-y-3 flex flex-col">
