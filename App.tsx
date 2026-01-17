@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
   ChevronRight, 
+  ChevronDown,
   ArrowRight, 
   CheckCircle2, 
   HelpCircle,
@@ -81,7 +82,7 @@ const Navbar = () => (
           </div>
           
           <div className="border-l border-slate-200 pl-5 py-1">
-            <span className="serif font-bold text-xl tracking-tighter block uppercase text-slate-900">多元申请规划</span>
+            <span className="serif font-bold text-xl tracking-tighter block uppercase text-slate-900">留学多元规划</span>
             <span className="text-[9px] uppercase tracking-[0.2em] text-amber-600 block font-black leading-none mt-1.5">Multi-Admission Planning Service</span>
           </div>
         </div>
@@ -104,7 +105,7 @@ const Navbar = () => (
           ))}
         </div>
 
-        <button className="hidden md:block bg-slate-900 text-white px-8 py-3 rounded-none text-[10px] font-black uppercase tracking-[0.25em] hover:bg-amber-600 transition-all shadow-premium">
+        <button className="hidden md:block bg-slate-900 text-white px-8 py-3 rounded-none text-[13px] font-black uppercase tracking-[0.25em] hover:bg-amber-600 transition-all shadow-premium">
           为了更好就业
         </button>
       </div>
@@ -201,6 +202,33 @@ const DilemmaCard: React.FC<{ dilemma: Dilemma, index: number, className?: strin
   </div>
 );
 
+const FinanceSample = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div className="mt-12 lg:mt-16 bg-white overflow-hidden transition-all duration-500">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-8 py-6 flex items-center justify-between bg-slate-900 text-white group relative overflow-hidden"
+      >
+        <div className="absolute inset-0 bg-amber-600 opacity-0 group-hover:opacity-5 transition-opacity"></div>
+        <div className="flex items-center gap-6 relative z-10">
+          <div className="w-12 h-12 bg-amber-600 flex items-center justify-center shrink-0 shadow-lg">
+             <Trophy className="w-6 h-6 text-white" />
+          </div>
+          <div className="text-left">
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-amber-500 block mb-1">Detailed Sample</span>
+            <h5 className="serif text-xl lg:text-3xl font-bold tracking-tight">查看服务样本：金融专业 - 经济金融类方向</h5>
+          </div>
+        </div>
+        <div className={`transition-all duration-500 transform ${isOpen ? 'rotate-180 text-amber-500 scale-110' : 'text-slate-500 group-hover:text-amber-600'}`}>
+           <ChevronDown className="w-10 h-10" />
+        </div>
+      </button>
+    </div>
+  );
+};
+
 const ModuleSection = () => (
   <section id="modules" className="pt-24 pb-12 bg-white overflow-hidden">
     <div className="max-w-screen-2xl mx-auto px-8 lg:px-16">
@@ -264,7 +292,7 @@ const ModuleSection = () => (
                   ].map((item, idx) => (
                     <div key={idx} className="flex flex-col h-full group/problem">
                       <div className="bg-amber-50 p-4 mb-4 rounded-sm border-l-4 border-amber-600 shadow-sm transition-all group-hover/problem:bg-amber-100">
-                        <span className="serif italic text-amber-900 text-xl font-black block">{item.q}</span>
+                        <span className="serif italic text-amber-900 text-xl font-black block">“ {item.q} ”</span>
                       </div>
                       <p className="text-slate-900/70 text-lg leading-relaxed font-medium pl-2 transition-opacity group-hover/problem:opacity-100">{item.a}</p>
                     </div>
@@ -286,7 +314,7 @@ const ModuleSection = () => (
                   {[
                     { q: '专业能去哪些行业？', a: '梳理可以去的行业清单，每个行业做什么' },
                     { q: '哪些岗位适合我？', a: '岗位类型、工作内容、入职要求（学历/技能/实习）' },
-                    { q: '这个行业适合我吗？', a: '内容、强度、压力，薪资和发展前景' },
+                    { q: '这个行业适合我吗？', a: '内容、强度、压力，薪资 and 发展前景' },
                     { q: '需要怎么准备？', a: '大一到大三补什么技能、实习、科研' },
                     { q: '多个行业怎么选？', a: '对比不同行业的优劣，给出选择建议' }
                   ].map((row, rIdx) => (
@@ -306,7 +334,7 @@ const ModuleSection = () => (
                   <span className="display text-3xl font-bold text-slate-200 italic">Part 2</span>
                   <h5 className="serif text-3xl font-bold text-slate-900">行业导师专属定制内容</h5>
                 </div>
-                <p className="text-slate-500 text-sm italic mb-4">根据学生需求和行业特点，灵活选择深度内容，包括但不限于：</p>
+                <p className="text-slate-500 text-sm italic mb-4">根据 student 需求 and 行业特点，灵活选择深度内容，包括但不限于：</p>
                 <div className="grid md:grid-cols-3 gap-x-8 gap-y-4">
                   {[
                     '针对目标岗位修改简历', '面试准备建议', '行业核心业务逻辑讲解', 
@@ -326,11 +354,11 @@ const ModuleSection = () => (
                 <h5 className="serif text-2xl font-bold mb-5 flex items-center gap-3"><Zap className="text-amber-500 w-6 h-6 fill-amber-500" /> 延伸服务</h5>
                 <div className="space-y-5 relative z-10">
                    {[
-                     { label: '实习规划', desc: '不同年级应该做什么类型的实习；实习时长和段数建议；递进式实习路径建议（大二短期实习→大三冲击大厂）' },
+                     { label: '实习规划', desc: '不同年级应该做什么类型的实习；实习时长 and 段数建议；递进式实习路径建议' },
                      { label: '实习信息与机会', desc: '提供目标行业的实习信息；匹配适合学生背景的实习机会' },
                      { label: '实习资源对接', desc: '协助学生获取实习机会；提供行业内推资源对接' }
                    ].map((ext, eIdx) => (
-                     <div key={eIdx}>
+                     <div key={ext.label}>
                        <span className="text-lg font-black uppercase text-amber-500 tracking-[0.4em] block mb-1">{ext.label}</span>
                        <p className="text-base text-white leading-relaxed font-normal opacity-95">{ext.desc}</p>
                        {eIdx < 2 && <div className="h-px bg-white/10 mt-5"></div>}
@@ -389,7 +417,7 @@ const ModuleSection = () => (
                     { q: '不清楚能申什么专业？', a: '不知道本科专业可以申请哪些研究生方向？不同方向学什么、做什么？哪个更适合自己？' },
                     { q: '不知道准备什么软背景？', a: '不同方向需要什么课程、实习、科研、证书、竞赛？如何针对性地提升背景？' },
                     { q: '不知道能申什么学校？', a: '自己的背景能申到什么水平的学校？如何提升背景才能申到更好的学校？' },
-                    { q: '不知道怎么规划时间和背景？', a: '从现在到申请时，每个年级应该分阶段做什么事情？' }
+                    { q: '不知道怎么规划时间 and 背景？', a: '从现在到申请时，每个年级应该分阶段做什么事情？' }
                   ].map((item, idx) => (
                     <div key={idx} className="flex flex-col h-full group/problem">
                       <div className="bg-slate-100 p-4 mb-4 rounded-sm border-l-4 border-slate-900 shadow-sm transition-all group-hover/problem:bg-slate-900 group-hover/problem:text-white">
@@ -411,12 +439,12 @@ const ModuleSection = () => (
                 {[
                   { dim: '维度1：专业认知', content: '这个方向学什么？毕业以后做什么？', harvest: '明确各方向的核心差异、学习内容、就业方向，找到最适合自己的申请方向' },
                   { dim: '维度2：学术准备', content: '怎么选课？跨专业如何选课？需要补充什么？需要考取哪些证书？', harvest: '了解申请所需的前置课程，以及考取什么证书更有利于申请' },
-                  { dim: '维度3：竞赛规划', content: '要不要做竞赛？做什么竞赛？', harvest: '分析不同类型竞赛的含金量与认可度，提供竞赛选择与时间规划建议' },
-                  { dim: '维度4：科研要求', content: '科研对申请有多大帮助？做什么科研？', harvest: '解析科研在申请中的作用，提供科研方向匹配建议（具体科研规划由模块3提供）' },
-                  { dim: '维度5：院校项目', content: '导师有没有特别推荐的学校？就读体验如何？周围人就业怎么样？', harvest: '提供真实的院校项目信息和就业反馈' },
-                  { dim: '维度6：申请策略', content: '背景处于什么水平？最需要补强什么？', harvest: '评估当前背景竞争力，明确最需要补强的短板，制定大一到大三的分阶段行动计划' },
+                  { dim: '维度3：竞赛规划', content: '要不要做竞赛？做什么竞赛？', harvest: '分析不同类型竞赛的含金量与认可度，提供竞赛选择 and 时间规划建议' },
+                  { dim: '维度4：科研要求', content: '科研对申请有多大帮助？做什么科研？', harvest: '解析科研在申请中的作用，提供科研方向匹配建议' },
+                  { dim: '维度5：院校项目', content: '导师有没有特别推荐的学校？就读体验如何？周围人就业怎么样？', harvest: '提供真实的院校项目信息 and 就业反馈' },
+                  { dim: '维度6：申请策略', content: '背景处于什么水平？最需要补强什么？', harvest: '评估背景竞争力，明确短板，制定分阶段行动计划' },
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white border border-slate-100 p-6 shadow-sm hover:shadow-xl transition-all group/dim">
+                  <div key={item.dim} className="bg-white border border-slate-100 p-6 shadow-sm hover:shadow-xl transition-all group/dim">
                     <div className="flex items-center justify-between mb-3">
                       <span className="serif italic text-amber-900 text-xl font-black block">{item.dim}</span>
                       <div className="h-px flex-1 bg-amber-600/10 mx-4"></div>
@@ -519,11 +547,11 @@ const ModuleSection = () => (
                <div className="grid md:grid-cols-4 gap-4 mb-12">
                  {[
                    { step: '01', title: '判断科研重要性', content: '科研对申请的方向有多重要？有没有必要做科研？' },
-                   { step: '02', title: '确定科研方向', content: '应该做什么方向的科研？如何判断科研课题和申请方向的匹配度？' },
-                   { step: '03', title: '选择科研形式与渠道', content: '本校、校外、付费科研项目有什么区别？如何选择？如何找到科研机会？' },
-                   { step: '04', title: '搞清楚论文要求', content: '什么样的科研成果对申请最有帮助？论文应该发什么刊物？项目报告能不能代替？' }
+                   { step: '02', title: '确定科研方向', content: '应该做什么方向的科研？如何判断科研课题与方向的匹配度？' },
+                   { step: '03', title: '选择科研形式与渠道', content: '本校、校外、付费科研项目有什么区别？如何选择？' },
+                   { step: '04', title: '搞清楚论文要求', content: '什么样的科研成果对申请最有帮助？论文应该发什么刊物？' }
                  ].map((s, idx) => (
-                   <div key={idx} className="bg-white border-t-[6px] border-slate-900 p-8 shadow-lg relative group/step hover:border-amber-600 transition-all">
+                   <div key={s.step} className="bg-white border-t-[6px] border-slate-900 p-8 shadow-lg relative group/step hover:border-amber-600 transition-all">
                      <span className="display text-6xl font-black text-slate-100 absolute top-4 right-4 group-hover/step:text-amber-50 transition-colors -z-0">{s.step}</span>
                      <div className="relative z-10">
                         <h6 className="serif font-bold text-xl text-slate-900 mb-4">{s.title}</h6>
@@ -573,7 +601,7 @@ const ModuleSection = () => (
               <div className="text-left flex flex-col gap-1">
                 <span className="block text-[11px] font-black uppercase text-[#9b1c1c] tracking-widest">服务提供者：</span>
                 <div className="flex items-center gap-2">
-                  <span className="block text-lg font-bold text-slate-900 leading-tight">语培规划师 (熟悉托福/雅思考试及院校要求)</span>
+                  <span className="block text-lg font-bold text-slate-900 leading-tight">语培规划师 (熟悉托福/雅思考试要求)</span>
                   <span className="text-slate-200 font-light">|</span>
                   <span className="text-base font-medium text-slate-500 whitespace-nowrap">全方位备考闭环</span>
                 </div>
@@ -592,10 +620,10 @@ const ModuleSection = () => (
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                   {[
                     { q: '要考什么？', a: '托福还是雅思？怎么选更合适？' },
-                    { q: '什么时候考？目标多少分', a: '什么时候首考？什么时候刷分？目标分数应该定多少？' },
+                    { q: '什么时候考？目标多少分', a: '什么时候首考？刷分？目标分数是多少？' },
                     { q: '自己能考多少分？', a: '不知道目前的英语真实水平' },
-                    { q: '怎么备考有效？', a: '不知道怎么备考？用什么资料？各科目怎么提高？' },
-                    { q: '缺乏外部监督', a: '缺乏备考动力，需要监督和推动' }
+                    { q: '怎么备考有效？', a: '用什么资料？各科目怎么提高？' },
+                    { q: '缺乏外部监督', a: '缺乏备考动力，需要监督 and 推动' }
                   ].map((item, idx) => (
                     <div key={idx} className="flex flex-col h-full group/test-prob">
                       <div className="bg-red-50 p-4 mb-4 border-l-4 border-[#9b1c1c] transition-all group-hover/test-prob:bg-[#9b1c1c]">
@@ -620,25 +648,25 @@ const ModuleSection = () => (
                    { 
                      title: '第一步：考试规划', 
                      icon: <Target className="w-7 h-7" />,
-                     content: '确定考试类型（托福/雅思）；设定目标分数；评估当前水平：提供模拟考试；制定出分时间表。' 
+                     content: '确定考试类型；设定目标分数；评估当前水平：提供模拟考试；制定出分时间表。' 
                    },
                    { 
                      title: '第二步：备考计划制定', 
                      icon: <PenTool className="w-7 h-7" />,
-                     content: '根据当前水平和目标分数，制定个性化学习计划；明确每个阶段的学习重点和时间安排' 
+                     content: '制定个性化学习计划；明确分阶段学习重点' 
                    },
                    { 
                      title: '第三步：备考支持', 
                      icon: <Headphones className="w-7 h-7" />,
-                     content: '电子版复习资料；定期模考服务；学习方法答疑；进度监督服务（确保按计划推进）' 
+                     content: '电子版复习资料；定期模考；学习方法答疑；进度监督' 
                    },
                    { 
                      title: '第四步：机构对接', 
                      icon: <Users className="w-7 h-7" />,
-                     content: '如需报班，可匹配合适的语培机构；提供机构推荐和课程建议（可选）' 
+                     content: '如需报班，可匹配合适的语培机构；提供机构推荐 and 建议' 
                    }
                  ].map((s, idx) => (
-                   <div key={idx} className="bg-white p-8 border border-slate-100 shadow-xl relative group/test-step hover:-translate-y-2 transition-all duration-500">
+                   <div key={s.title} className="bg-white p-8 border border-slate-100 shadow-xl relative group/test-step hover:-translate-y-2 transition-all duration-500">
                      <div className="w-12 h-12 bg-slate-900 text-white flex items-center justify-center mb-6 group-hover/test-step:bg-[#9b1c1c] transition-colors">
                         {s.icon}
                      </div>
@@ -691,7 +719,7 @@ const DefinitionSection = () => (
           </div>
           <h2 className="serif text-3xl lg:text-4xl font-black text-slate-900 tracking-tighter leading-tight mb-2">什么是“多元申请规划”？</h2>
           <div className="relative inline-flex mt-1">
-            <span className="display text-3xl lg:text-4xl font-bold text-white bg-amber-600 px-6 py-2 border-amber-600 uppercase tracking-widest italic">不止于申请</span>
+            <span className="display text-3xl lg:text-5xl font-bold text-white bg-amber-600 px-6 py-2 border-amber-600 uppercase tracking-widest italic">不止于申请</span>
           </div>
         </div>
       </div>
@@ -710,7 +738,7 @@ const DefinitionSection = () => (
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1 content-start">
                 {PHILOSOPHY_PILLARS[0].items?.map((item, iIdx) => (
-                  <div key={iIdx} className="bg-white p-4 border border-slate-100 hover:border-amber-200 hover:shadow-xl transition-all group/item flex flex-col h-full">
+                  <div key={item.name} className="bg-white p-4 border border-slate-100 hover:border-amber-200 hover:shadow-xl transition-all group/item flex flex-col h-full">
                     <div className="flex items-center gap-3 mb-2">
                       <div className="shrink-0 w-9 h-9 bg-slate-900 flex items-center justify-center shadow-md">
                         {React.cloneElement(item.icon as React.ReactElement<any>, { className: 'text-white w-3.5 h-3.5' })}
@@ -736,7 +764,7 @@ const DefinitionSection = () => (
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 flex-1">
                 {PHILOSOPHY_PILLARS[1].steps?.map((step, sIdx) => (
-                  <div key={sIdx} className="bg-[#1a1c1e] text-white p-3 pt-6 group/phase hover:bg-amber-600 transition-colors duration-500 relative flex flex-col h-full shadow-lg">
+                  <div key={step.label} className="bg-[#1a1c1e] text-white p-3 pt-6 group/phase hover:bg-amber-600 transition-colors duration-500 relative flex flex-col h-full shadow-lg">
                     <div className="text-[8px] font-black tracking-widest text-amber-500 mb-3 group-hover/phase:text-white uppercase">P{sIdx + 1}</div>
                     <h4 className="serif font-bold text-base lg:text-[18px] mb-3 leading-tight">{step.label}</h4>
                     <div className="h-0.5 w-5 bg-amber-600 group-hover/phase:bg-white transition-colors mb-3"></div>
@@ -767,7 +795,7 @@ const DefinitionSection = () => (
               </div>
               <div className="space-y-6 relative z-10">
                 {PHILOSOPHY_VALUES.map((val, vIdx) => (
-                  <div key={vIdx} className="flex gap-5 items-start group/val">
+                  <div key={val.title} className="flex gap-5 items-start group/val">
                     <div className="shrink-0 w-7 h-7 rounded-full border border-emerald-500/40 flex items-center justify-center bg-transparent group-hover/val:bg-emerald-500 transition-all">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600 group-hover/val:text-white" />
                     </div>
@@ -817,7 +845,7 @@ const ProcessSection = () => {
           <div className="lg:col-span-6 flex flex-wrap gap-3 lg:justify-end">
              {PHASES.map((p, idx) => (
                <button 
-                 key={idx} 
+                 key={p.title} 
                  onClick={() => setActivePhase(idx)}
                  className={`px-8 py-8 border transition-all duration-700 flex flex-col justify-between items-start text-left min-w-[140px] ${activePhase === idx ? 'bg-amber-600 border-amber-600 shadow-2xl scale-105' : 'border-slate-800 hover:border-slate-600 bg-transparent'}`}
                >
@@ -834,7 +862,7 @@ const ProcessSection = () => {
               <div className="h-px w-full bg-slate-800 mb-10"></div>
               <div className="grid md:grid-cols-2 gap-10">
                 {PHASES[activePhase].services.map((service, sIdx) => (
-                  <div key={sIdx} className="group">
+                  <div key={service.name} className="group">
                     <h5 className="serif font-bold text-[19px] mb-4 flex items-center gap-3"><span className="w-6 h-px bg-amber-600 block"></span>{service.name}</h5>
                     {service.description && <p className="text-[17px] leading-relaxed mb-4 font-light">{service.description}</p>}
                     {service.items && (
@@ -855,7 +883,7 @@ const ProcessSection = () => {
                <h4 className="serif text-2xl font-bold text-white mb-10 flex items-center gap-4"><ListChecks className="text-amber-600 w-7 h-7" /> 核心成果</h4>
                <ul className="space-y-6 relative z-10">
                  {PHASES[activePhase].outcomes.map((outcome, oIdx) => (
-                   <li key={oIdx} className="flex gap-4 group items-center">
+                   <li key={outcome} className="flex gap-4 group items-center">
                      <span className="serif text-[13px] font-black text-amber-600 group-hover:translate-x-1 transition-transform">0{oIdx + 1}</span>
                      <span className="text-slate-200 text-white font-light text-[18px] tracking-tight leading-snug">{outcome}</span>
                    </li>
@@ -949,9 +977,9 @@ export default function App() {
           <div>
             <div className="flex items-center gap-6 mb-6">
               <div className="w-12 h-12 bg-amber-600 flex items-center justify-center rotate-45 shadow-2xl"><Zap className="text-white w-5 h-5 -rotate-45" /></div>
-              <div><span className="serif font-bold text-2xl tracking-tighter uppercase">多元申请规划</span><p className="text-[9px] text-amber-500 font-black uppercase tracking-[0.4em] mt-1">Multi-Admission Planning Service</p></div>
+              <div><span className="serif font-bold text-2xl tracking-tighter uppercase">留学多元规划</span><p className="text-[9px] text-amber-500 font-black uppercase tracking-[0.4em] mt-1">Multi-Admission Planning Service</p></div>
             </div>
-            <p className="text-white text-[18px] max-w-sm font-light leading-relaxed">提供全球名校的学术规划与职业发展咨询，助力学子实现更好的就业<br/> SeeyooEdu</p>
+            <p className="text-white text-[18px] max-w-sm font-light leading-relaxed">提供全球名校的学术规划与职业发展咨询，助力学子实现更好的就业<br/> 超哥留学 北京学翼 榕树国际SeeyooEdu</p>
           </div>
           <div className="flex md:justify-end gap-16 text-[16px] font-black uppercase tracking-[0.3em] text-slate-500">
             <div className="space-y-3 flex flex-col">
