@@ -122,7 +122,7 @@ const Hero = () => (
           <span className="text-[18px] font-black uppercase tracking-[0.3em] text-amber-700">多元申请规划@2026 - 真正务实的规划 为了更好就业 </span>
         </div>
         <h1 className="serif text-[20px] md:text-[48px] font-bold text-slate-900 leading-[1.2] mb-12 tracking-tighter">
-          解决本科生申请中的三大困境: <br />
+          解决留学申请中的三大困境: <br />
           <span className="text-amber-600 relative leading-[1.0]">
             不知道留学申什么方向<br />
             不清楚如何就业<br />
